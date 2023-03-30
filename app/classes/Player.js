@@ -158,12 +158,16 @@ class Player {
                 $this.mouseAngle = data.state;
         });
 
+        this.socket.on('disconnect', function () {
+            $this.onDisconnect($this);
+        });
+
         // Sending
 
     }
 
-    onDisconnect() {
-        Players.splice(Players.indexOf(this), 1);
+    onDisconnect(player) {
+        Players.splice(Players.indexOf(player), 1);
         removePack.players.push({id: this.id});
         console.log('Players: ' + --playersOnline);
     }
