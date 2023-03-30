@@ -1,10 +1,11 @@
 class Bullet {
-    constructor(parent, angle, x, y) {
+    constructor(parent, angle, x, y, color) {
         this.id = Math.random();
         this.parent = parent;
         this.angle = angle;
         this.x = x;
         this.y = y;
+        this.color = color;
         this.toRemove = false;
 
         /** Calc */
@@ -59,7 +60,8 @@ class Bullet {
             id: this.id,
             x: this.x,
             y: this.y,
-            angle: this.angle
+            angle: this.angle,
+            color: this.color
         };
     }
 

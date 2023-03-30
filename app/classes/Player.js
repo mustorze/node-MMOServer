@@ -23,10 +23,11 @@ class Player {
         this.hp = 10;
         this.hpMax = 10;
         this.score = 0;
+        this.color = Math.floor(Math.random()*16777215).toString(16);
 
         initPack.players.push(this.initPack);
         this.onConnect();
-        console.log('Players: ' + ++playersOnline);
+        console.log('Players: ' + ++playersOnline + ', Color: ' + this.color);
     }
 
     update() {
@@ -43,7 +44,8 @@ class Player {
             this.id,
             this.mouseAngle,
             this.x,
-            this.y
+            this.y,
+            this.color
         );
 
         Bullets.push(bullet);
@@ -88,7 +90,8 @@ class Player {
             id: this.id,
             x: this.x,
             y: this.y,
-            number: this.name
+            number: this.name,
+            color: this.color
         };
     }
 
@@ -110,7 +113,8 @@ class Player {
             players.push({
                 id: player.id,
                 x: player.x,
-                y: player.y
+                y: player.y,
+                color: player.color
             })
         }
 
