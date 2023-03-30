@@ -70,11 +70,29 @@ class Player {
     movement() {
         if (this.spdX != 0) {
             this.x += this.spdX;
+
+            if (this.x < 0) {
+                this.x = 0;
+            }
+
+            if (this.x > 500) {
+                this.x = 500;
+            }
+
             this.updating = true;
         }
 
         if (this.spdY != 0) {
             this.y += this.spdY;
+
+            if (this.y < 0) {
+                this.y = 0;
+            }
+
+            if (this.y > 500) {
+                this.y = 500;
+            }
+
             this.updating = true;
         }
     }

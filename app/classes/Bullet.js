@@ -21,18 +21,21 @@ class Bullet {
             this.toRemove = true;
 
         for (const i in Players) {
-            const p = Players[i];
+            const victim = Players[i];
             const player = Players.find(item => item.id === this.parent);
-            if (this.getDistance(p) < 32 && player.id !== p.id) {
+            if (this.getDistance(victim) < 32 && player.id !== victim.id) {
                 // collision
-                p.hp -= 1;
+                victim.hp -= 1;
 
-                if (p.hp <= 0) {
+                if (victim.hp <= 0) {
                     player.score += 1;
 
-                    p.hp = p.hpMax;
-                    p.teleport(Math.random() * 500, Math.random() * 500);
+                    victim.hp = victim.hpMax;
+                    victim.teleport(Math.random() * 500, Math.random() * 500);
                 }
+
+                victim.socket.emit('selfUpdate', {hp: victim.hp})
+                player.socket.emit('selfUpdate', {score: player.score})
 
                 this.toRemove = true;
             }
