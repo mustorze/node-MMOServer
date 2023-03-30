@@ -109,7 +109,8 @@ class Player {
             x: this.x,
             y: this.y,
             number: this.name,
-            color: this.color
+            color: this.color,
+            score: this.score
         };
     }
 
@@ -117,7 +118,8 @@ class Player {
         return {
             id: this.id,
             x: this.x,
-            y: this.y
+            y: this.y,
+            score: this.score
         };
     }
 
@@ -132,7 +134,8 @@ class Player {
                 id: player.id,
                 x: player.x,
                 y: player.y,
-                color: player.color
+                color: player.color,
+                score: player.score
             })
         }
 

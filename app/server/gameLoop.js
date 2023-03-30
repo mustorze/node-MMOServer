@@ -7,7 +7,8 @@ setInterval(function () {
             updatePack.players.push({
                 id: player.id,
                 x: player.x,
-                y: player.y
+                y: player.y,
+                score: player.score
             });
 
             player.updating = false;
